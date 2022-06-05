@@ -13,6 +13,7 @@
 #include <cstdint>
 #include <variant>
 
+#include "typelists/cppstd.hpp"
 #include "typelists/utils.hpp"
 
 /**  @brief Basic real types. */
@@ -77,7 +78,7 @@ namespace typelists::base
 
   using All = utils::concatTypeLists<real::All, complex::All>::type;
 
-#if __cplusplus >= 202002L
+#ifdef TYPE_LIST_CPP_2020
   namespace real::concepts
   {
     template <typename T>

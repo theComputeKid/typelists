@@ -11,6 +11,7 @@
  */
 #pragma once
 #include "typelists/base.hpp"
+#include "typelists/cppstd.hpp"
 #include "typelists/utils.hpp"
 
 /**  @brief Compile-time template metaprogramming with std::variant. */
@@ -75,7 +76,7 @@ namespace typelists::vector
 
   using All = utils::wrapTypeListsAsVector<base::All>::type;
 
-#if __cplusplus >= 202002L
+#ifdef TYPE_LIST_CPP_2020
   namespace real::concepts
   {
     template <typename T>

@@ -1,0 +1,7 @@
+-------------------------------------
+typelists: Helpers for managing types
+-------------------------------------
+
+Requirements:
+- C++17 compiler for typelists
+- C++20 compiler for concepts

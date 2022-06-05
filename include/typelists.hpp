@@ -10,11 +10,10 @@
  * @copyright Copyright (c) 2022 theComputeKid
  */
 #pragma once
+#include "typelists/cppstd.hpp"
 
 // Enabled for C++17 and above
-#if __cplusplus >= 201703L
-#  include "typelists/base.hpp"
-#  include "typelists/export.hpp"
-#  include "typelists/utils.hpp"
-#  include "typelists/vector.hpp"
-#endif
+#include "typelists/base.hpp"
+#include "typelists/export.hpp"
+#include "typelists/utils.hpp"
+#include "typelists/vector.hpp"
