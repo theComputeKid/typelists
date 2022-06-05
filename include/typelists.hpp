@@ -10,9 +10,6 @@
  * @copyright Copyright (c) 2022 theComputeKid
  */
 #pragma once
-#include "typelists/cppstd.hpp"
-
-// Enabled for C++17 and above
 #include "typelists/base.hpp"
 #include "typelists/export.hpp"
 #include "typelists/utils.hpp"
