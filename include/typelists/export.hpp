@@ -27,8 +27,16 @@
     return std::visit([](auto t) { return std::any(func<decltype(t)>); }, types);                                      \
   }
 
-#define TYPE_LIST_INSTANTIATE_2_TEMPLATE(func, typelist1, typelist2)                                                   \
+#define TYPE_LIST_INSTANTIATE_2_TEMPLATES(func, typelist1, typelist2)                                                  \
   std::any func##TemplateInstantiate(typelist1 const types1, typelist2 const types2)                                   \
   {                                                                                                                    \
     return std::visit([](auto t1, auto t2) { return std::any(func<decltype(t1), decltype(t2)>); }, types1, types2);    \
+  }
+
+#define TYPE_LIST_INSTANTIATE_3_TEMPLATES(func, typelist1, typelist2, typelist3)                                       \
+  std::any func##TemplateInstantiate(typelist1 const types1, typelist2 const types2, typelist3 const types3)           \
+  {                                                                                                                    \
+    return std::visit([](auto t1, auto t2, auto t3)                                                                    \
+                      { return std::any(func<decltype(t1), decltype(t2), decltype(t3)>); },                            \
+                      types1, types2, types3);                                                                         \
   }
