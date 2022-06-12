@@ -47,6 +47,6 @@ TEMPLATE_INSTANTIATE(myFunc, typelists::base::real::Float)
 
 template <typename T1, typename T2> void myFunc(){}
 using t = std::tuple<typelists::base::real::Float, typelists::base::real::Integer>
-TEMPLATE_INSTANTIATE_SINGLE_TEMPLATE(myFunc, typelists::base::real::Float)
+TEMPLATE_INSTANTIATE(myFunc, typelists::base::real::Float)
 // instantiates T1 for all types in real::Float and T2 for all types in real::Integer.
 ```
