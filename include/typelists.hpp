@@ -12,5 +12,6 @@
 #pragma once
 #include "typelists/base.hpp"
 #include "typelists/export.hpp"
+#include "typelists/types.hpp"
 #include "typelists/utils.hpp"
 #include "typelists/vector.hpp"

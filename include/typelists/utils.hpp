@@ -13,6 +13,7 @@
 
 #include <complex>
 #include <cstddef>
+#include <tuple>
 #include <type_traits>
 #include <utility>
 #include <variant>
@@ -113,4 +114,28 @@ namespace typelists::utils
         typename std::variant_alternative_t<getTypeIndexInVariant<OriginalTypeList, OriginalType>(), NewTypeList>;
     static_assert(isTypeInTypeList<type, NewTypeList>());
   };
+
+  template <typename T>
+  constexpr bool IsTuple = false;
+
+  template <typename... types>
+  constexpr bool IsTuple<std::tuple<types...>> = true;
+
+  template <typename T>
+  constexpr bool IsVariant = false;
+
+  template <typename... types>
+  constexpr bool IsVariant<std::variant<types...>> = true;
+
+  template <typename T>
+  constexpr bool IsTypeList()
+  {
+    return IsVariant<T>;
+  }
+
+  template <typename T>
+  constexpr bool IsCollectionOfTypeLists()
+  {
+    return IsTuple<T>;
+  }
 } // namespace typelists::utils
