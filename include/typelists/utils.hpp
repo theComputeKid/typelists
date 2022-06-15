@@ -45,16 +45,6 @@ namespace typelists::utils
     using type = typename std::variant<std::complex<V1>...>;
   };
 
-  /** @brief Helper to wrap typelists in std::vector. Ordering is kept consistent. E.g: float -> std::vector<float>. */
-  template <typename Variant>
-  struct wrapTypeListsAsVector;
-
-  template <typename... V1>
-  struct wrapTypeListsAsVector<std::variant<V1...>>
-  {
-    using type = typename std::variant<std::vector<V1>...>;
-  };
-
   /**
    * @brief Check if the type is a valid member of a variant.
    *

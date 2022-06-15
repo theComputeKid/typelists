@@ -1,6 +1,6 @@
-#include "typelists/base.hpp"
+#include "typelists/typelists.hpp"
 
-using namespace typelists::base;
+using namespace typelists;
 static_assert(std::variant_size_v<real::Numeric> == std::variant_size_v<complex::Numeric>);
 static_assert(std::variant_size_v<real::SignedInteger> == std::variant_size_v<complex::UnsignedInteger>);
 

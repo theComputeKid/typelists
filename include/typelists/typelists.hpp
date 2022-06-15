@@ -11,14 +11,18 @@
  */
 #pragma once
 #include <cstdint>
+#include <tuple>
 #include <variant>
 
 #include "typelists/cppstd.hpp"
 #include "typelists/utils.hpp"
 
 /**  @brief Basic real types. */
-namespace typelists::base
+namespace typelists
 {
+  template <typename... T>
+  using Collection = std::tuple<T...>;
+
   namespace real
   {
     /** @brief Typelist for logical */
@@ -79,65 +83,65 @@ namespace typelists::base
   using All = utils::concatTypeLists<real::All, complex::All>::type;
 
 #ifdef TYPE_LIST_CPP_2020
-  namespace real::concepts
-  {
-    template <typename T>
-    concept Logical = typelists::utils::isTypeInTypeList<T, real::Logical>();
-
-    template <typename T>
-    concept Float = utils::isTypeInTypeList<T, real::Float>();
-
-    template <typename T>
-    concept SignedInteger = utils::isTypeInTypeList<T, real::SignedInteger>();
-
-    template <typename T>
-    concept UnsignedIntegerTypes = utils::isTypeInTypeList<T, real::UnsignedInteger>();
-
-    template <typename T>
-    concept Integer = utils::isTypeInTypeList<T, real::Integer>();
-
-    template <typename T>
-    concept Integral = utils::isTypeInTypeList<T, real::Integral>();
-
-    template <typename T>
-    concept Numeric = utils::isTypeInTypeList<T, real::Numeric>();
-
-    template <typename T>
-    concept All = utils::isTypeInTypeList<T, real::All>();
-  } // namespace real::concepts
-
-  namespace complex::concepts
-  {
-    template <typename T>
-    concept Logical = utils::isTypeInTypeList<T, complex::Logical>();
-
-    template <typename T>
-    concept Float = utils::isTypeInTypeList<T, complex::Float>();
-
-    template <typename T>
-    concept SignedInteger = utils::isTypeInTypeList<T, complex::SignedInteger>();
-
-    template <typename T>
-    concept UnsignedIntegerTypes = utils::isTypeInTypeList<T, complex::UnsignedInteger>();
-
-    template <typename T>
-    concept Integer = utils::isTypeInTypeList<T, complex::Integer>();
-
-    template <typename T>
-    concept Integral = utils::isTypeInTypeList<T, complex::Integral>();
-
-    template <typename T>
-    concept Numeric = utils::isTypeInTypeList<T, complex::Numeric>();
-
-    template <typename T>
-    concept All = utils::isTypeInTypeList<T, complex::All>();
-
-  } // namespace complex::concepts
-
   namespace concepts
   {
+    namespace real
+    {
+      template <typename T>
+      concept Logical = utils::isTypeInTypeList<T, typelists::real::Logical>();
+
+      template <typename T>
+      concept Float = utils::isTypeInTypeList<T, typelists::real::Float>();
+
+      template <typename T>
+      concept SignedInteger = utils::isTypeInTypeList<T, typelists::real::SignedInteger>();
+
+      template <typename T>
+      concept UnsignedIntegerTypes = utils::isTypeInTypeList<T, typelists::real::UnsignedInteger>();
+
+      template <typename T>
+      concept Integer = utils::isTypeInTypeList<T, typelists::real::Integer>();
+
+      template <typename T>
+      concept Integral = utils::isTypeInTypeList<T, typelists::real::Integral>();
+
+      template <typename T>
+      concept Numeric = utils::isTypeInTypeList<T, typelists::real::Numeric>();
+
+      template <typename T>
+      concept All = utils::isTypeInTypeList<T, typelists::real::All>();
+    } // namespace real
+
+    namespace complex
+    {
+      template <typename T>
+      concept Logical = utils::isTypeInTypeList<T, typelists::complex::Logical>();
+
+      template <typename T>
+      concept Float = utils::isTypeInTypeList<T, typelists::complex::Float>();
+
+      template <typename T>
+      concept SignedInteger = utils::isTypeInTypeList<T, typelists::complex::SignedInteger>();
+
+      template <typename T>
+      concept UnsignedIntegerTypes = utils::isTypeInTypeList<T, typelists::complex::UnsignedInteger>();
+
+      template <typename T>
+      concept Integer = utils::isTypeInTypeList<T, typelists::complex::Integer>();
+
+      template <typename T>
+      concept Integral = utils::isTypeInTypeList<T, typelists::complex::Integral>();
+
+      template <typename T>
+      concept Numeric = utils::isTypeInTypeList<T, typelists::complex::Numeric>();
+
+      template <typename T>
+      concept All = utils::isTypeInTypeList<T, typelists::complex::All>();
+
+    } // namespace complex
+
     template <typename T>
-    concept All = utils::isTypeInTypeList<T, base::All>();
-  }
+    concept All = utils::isTypeInTypeList<T, typelists::All>();
+  } // namespace concepts
 #endif
-} // namespace typelists::base
+} // namespace typelists

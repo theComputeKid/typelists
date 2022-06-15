@@ -10,8 +10,8 @@
  * @copyright Copyright (c) 2022 theComputeKid
  */
 #pragma once
-#include "typelists/base.hpp"
+#include "typelists/dispatch.hpp"
 #include "typelists/export.hpp"
+#include "typelists/typelists.hpp"
 #include "typelists/types.hpp"
 #include "typelists/utils.hpp"
-#include "typelists/vector.hpp"

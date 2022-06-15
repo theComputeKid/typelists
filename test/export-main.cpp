@@ -1,7 +1,8 @@
 #include "typelists.hpp"
 
-template <typelists::base::real::concepts::All T1, typelists::base::real::concepts::Logical T2,
-          typelists::base::real::concepts::Float T3>
+using namespace typelists;
+
+template <concepts::real::All T1, concepts::real::Logical T2, concepts::real::Float T3>
 void tripleTemplateFuncWithConcepts();
 
 template <typename T1, typename T2>

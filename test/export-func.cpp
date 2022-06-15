@@ -2,19 +2,19 @@
 
 #include "typelists.hpp"
 
-template <typelists::base::real::concepts::All T1, typelists::base::real::concepts::Logical T2,
-          typelists::base::real::concepts::Float T3>
+using namespace typelists;
+
+template <concepts::real::All T1, concepts::real::Logical T2, concepts::real::Float T3>
 void tripleTemplateFuncWithConcepts()
 {
 }
-TYPE_LIST_INSTANTIATE_3_TEMPLATES(tripleTemplateFuncWithConcepts, typelists::base::real::All,
-                                  typelists::base::real::Logical, typelists::base::real::Float)
+TYPE_LIST_INSTANTIATE_3_TEMPLATES(tripleTemplateFuncWithConcepts, real::All, real::Logical, real::Float)
 
 template <typename T1, typename T2>
 void doubleTemplateFunc()
 {
 }
-using t = std::tuple<typelists::base::real::All, typelists::base::real::All>;
+using t = Collection<real::All, real::All>;
 TYPE_LIST_INSTANTIATE(doubleTemplateFunc, t)
 
 namespace testNS
@@ -23,5 +23,5 @@ namespace testNS
   void singleTemplateFunc()
   {
   }
-  TYPE_LIST_INSTANTIATE(singleTemplateFunc, typelists::base::real::Float)
+  TYPE_LIST_INSTANTIATE(singleTemplateFunc, real::Float)
 } // namespace testNS
